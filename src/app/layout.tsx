@@ -5,16 +5,6 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
   title: "Bucket List",
 };
@@ -28,13 +18,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider
-          // Hydration warning due to improper use of actual base HTML which is masked by layers of abstraction
-          // https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render
-          // TODO Optional: Try to resolve it/understand where and why it occurs
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          // Hydration warning due to improper use of actual base HTML which is masked by layers of abstraction
+          // https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render
+          // TODO Optional: Try to resolve it/understand where and why it occurs
         >
           <div className="flex min-h-screen w-full flex-col">
             <Header />
@@ -43,7 +33,8 @@ export default function RootLayout({
             </main>
           </div>
 
-          <Toaster />
+          <Toaster richColors />
+          {/* No richcolors, no color on sonner toasts */}
         </ThemeProvider>
       </body>
     </html>
