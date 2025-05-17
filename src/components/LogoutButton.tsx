@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { logoutAction } from "@/actions/users";
 
 function LogoutButton() {
   const router = useRouter();
@@ -16,9 +17,8 @@ function LogoutButton() {
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    const errorMessage = "Erroneous error message";
+    const { errorMessage } = await logoutAction();
 
-    // TODO Make toast using sonner. Both error and success
     if (!errorMessage) {
       toast.success("Logged Out", {
         description: "You have successfully logged out",
@@ -32,7 +32,7 @@ function LogoutButton() {
     setLoading(false);
   };
 
-  return (
+return (
     <Button
       variant="outline"
       onClick={handleLogOut}

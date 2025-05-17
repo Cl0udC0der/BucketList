@@ -1,0 +1,12 @@
+|| useTransition stops freezes from the UI during server actions 
+> Location: AuthForm.tsx 
+> Reason: Idk. Will investigate
+> What do: Apply it whenever we do server transactions for now. Revisit when you have a semblance of a clue
+
+
+|| Changed the default NEXT_PUBLIC_SUPABASE_URL! and NEXT_PUBLIC_SUPABASE_ANON_KEY! to exclude NEXT_PUBLIC 
+> Location: Middleware and .env
+> Reason: Exposes it to client-side, which adds vulnerability (Idk if opinion or fact)
+> What do: Fuzzy find the other cases at the start of change. This bug will be very hard to find 
+
+|| 
