@@ -9,4 +9,7 @@
 > Reason: Exposes it to client-side, which adds vulnerability (Idk if opinion or fact)
 > What do: Fuzzy find the other cases at the start of change. This bug will be very hard to find 
 
-|| 
+|| Best practice to add all dependencies to the useEffect
+> Location: NoteTextInput.jsx 
+> Reason: Make sure the React Hook really has all its dependencies
+> What do: Every variable used inside, put in dependencies

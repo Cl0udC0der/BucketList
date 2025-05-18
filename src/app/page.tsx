@@ -4,6 +4,7 @@ import NewNoteButton from "@/components/NewNoteButton";
 // import NoteTextInput from "@/components/NoteTextInput";
 // import HomeToast from "@/components/HomeToast";
 import { prisma } from "@/db/prisma";
+import NoteTextInput  from "@/components/NoteTextInput";
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -28,9 +29,7 @@ async function HomePage({ searchParams }: Props) {
         <NewNoteButton user={user} />
       </div>
 
-      {/* <NoteTextInput noteId={noteId} startingNoteText={note?.text || ""} />
-
-      <HomeToast /> */}
+      <NoteTextInput noteId={noteId} startingNoteText={note?.text || ""} />
     </div>
   );
 }
