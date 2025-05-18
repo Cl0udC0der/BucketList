@@ -13,3 +13,15 @@
 > Location: NoteTextInput.jsx 
 > Reason: Make sure the React Hook really has all its dependencies
 > What do: Every variable used inside, put in dependencies
+
+
+|| If you have an error with prisma, run  ```pnpm dlx prisma generate```
+> Location: Terminal 
+> Reason: Deleted all notes to check. I got checked instead. 
+> ```pnpm dlx prisma generate```
+
+|| Prisma's "edge environment" refers to server-side JavaScript runtimes that are not Node.js, such as Vercel Edge Functions, Cloudflare Workers, and Deno Deploy. These environments have limited 
+|| access to Node.js APIs and constrained resources, requiring a specialized approach for Prisma to function correctly.
+> Location: Middleware.ts
+> Reason: Prisma floats above Node.js
+> What do: use the higher level frameworks to access prisma

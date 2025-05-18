@@ -33,6 +33,8 @@ function DeleteNoteButton({ noteId, deleteNoteLocally }: Props) {
     startTransition(async () => {
       const { errorMessage } = await deleteNoteAction(noteId);
 
+      // If there is a user in the home route, it will send them to a route with their noteIds
+      // If the user has no notes, it will send them to the home route and create a blank note
       if (!errorMessage) {
         toast.success( "Note Deleted",{
           description: "You have successfully deleted the note",

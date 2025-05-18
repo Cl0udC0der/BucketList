@@ -14,8 +14,8 @@ import { Fragment, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Textarea } from "./ui/textarea";
 import { ArrowUpIcon } from "lucide-react";
-// import { askAIAboutNotesAction } from "@/actions/notes";
-// import "@/styles/ai-response.css";
+import { askAIAboutNotesAction } from "@/actions/notes";
+import "@/styles/ai-response.css";
 
 type Props = {
   user: User | null;
@@ -26,6 +26,7 @@ function AskAIButton({ user }: Props) {
 
   const [isPending, startTransition] = useTransition();
 
+  // Every time we make a request to the AI, we pass the *entire* context of the conversation so far to act as a memory.
   const [open, setOpen] = useState(false);
   const [questionText, setQuestionText] = useState("");
   const [questions, setQuestions] = useState<string[]>([]);
@@ -123,7 +124,7 @@ function AskAIButton({ user }: Props) {
         </div>
 
         <div
-          className="mt-auto flex cursor-text flex-col rounded-lg border p-4"
+          className="mt-auto flex cursor-text flex-col rounded-lg border p-4 relative"
           onClick={handleClickInput}
         >
           <Textarea
@@ -140,7 +141,7 @@ function AskAIButton({ user }: Props) {
             value={questionText}
             onChange={(e) => setQuestionText(e.target.value)}
           />
-          <Button className="ml-auto size-8 rounded-full">
+          <Button className="ml-auto size-8 rounded-full absolute right-2 bottom-2">
             <ArrowUpIcon className="text-background" />
           </Button>
         </div>
